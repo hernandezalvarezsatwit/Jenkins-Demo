@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Build1') {
+        stage('Build') {
             steps {
                 sh 'rm -rf build'
                 sh 'mkdir build'
@@ -12,7 +12,7 @@ pipeline {
                 sh 'echo "body" >> build/car.txt'
             }
         }
-        stage('Test1') {
+        stage('Test') {
             steps(){
                 sh 'test -f build/car.txt'
                 sh 'grep "chassis" build/car.txt'
@@ -20,7 +20,7 @@ pipeline {
                 sh 'grep "body" build/car.txt'
             }
         }
-        stage('Publish1'){
+        stage('Publish'){
             steps{
                 archiveArtifacts artifacts: 'build/'
             }
