@@ -10,6 +10,7 @@ pipeline {
                 sh 'echo "chassis" >> build/car.txt'
                 sh 'echo "engine" >> build/car.txt'
                 sh 'echo "body" >> build/car.txt'
+                echo 'Done with build'
             }
         }
         stage('Test') {
